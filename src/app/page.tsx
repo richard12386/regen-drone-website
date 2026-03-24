@@ -8,7 +8,7 @@ export default function Page() {
 
   const copy = {
     cs: {
-      title: "Lidé mohou létat",
+      title: "Humans Can Fly",
       lead: "Vyvíjíme novou generaci inteligentních dronových systémů.",
       body:
         "REGEN staví autonomní platformy letecké úrovně pro civilní, průmyslové i strategické nasazení s přesným řízením letu, odolným hardwarem a softwarem připraveným pro misi.",
