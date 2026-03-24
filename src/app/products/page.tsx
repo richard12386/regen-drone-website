@@ -2,54 +2,232 @@
 
 import { useLanguage } from "@/components/site/language-provider";
 
-const products = [
+type Language = "cs" | "en";
+
+type Product = {
+  name: string;
+  description: Record<Language, string>;
+  price: Record<Language, string>;
+};
+
+type Category = {
+  title: Record<Language, string>;
+  items: Product[];
+};
+
+const categories: Category[] = [
   {
-    name: "REGEN Falcon X",
-    description: {
-      cs: "Vysoce výkonný osobní dron",
-      en: "High-performance personal drone",
+    title: {
+      cs: "Osobní drony",
+      en: "Personal Drones",
     },
-    price: "$1,299",
+    items: [
+      {
+        name: "REGEN AirSnap",
+        description: {
+          cs: "Kompaktní dron pro každodenní létání a snadné cestování.",
+          en: "Compact drone for everyday flying and easy travel.",
+        },
+        price: {
+          cs: "9 990 Kč",
+          en: "$429",
+        },
+      },
+      {
+        name: "REGEN TravelFly",
+        description: {
+          cs: "Skládací osobní dron s delší výdrží baterie.",
+          en: "Foldable personal drone with extended battery life.",
+        },
+        price: {
+          cs: "14 990 Kč",
+          en: "$649",
+        },
+      },
+      {
+        name: "REGEN Junior",
+        description: {
+          cs: "Dostupný model pro začátečníky a výuku základů pilotáže.",
+          en: "Accessible starter model for beginners and pilot training.",
+        },
+        price: {
+          cs: "1 990 Kč",
+          en: "$89",
+        },
+      },
+    ],
   },
   {
-    name: "REGEN Rescue One",
-    description: {
-      cs: "Dronový systém pro záchranné nasazení",
-      en: "Emergency response drone system",
+    title: {
+      cs: "Firemní drony",
+      en: "Business Drones",
     },
-    price: "$4,800",
+    items: [
+      {
+        name: "REGEN Inspect",
+        description: {
+          cs: "Inspekční dron pro stavebnictví, energetiku a technické provozy.",
+          en: "Inspection drone for construction, energy, and technical operations.",
+        },
+        price: {
+          cs: "79 000 Kč",
+          en: "$3,390",
+        },
+      },
+      {
+        name: "REGEN AgroScan",
+        description: {
+          cs: "Zemědělský dron se senzory pro mapování a analýzu porostu.",
+          en: "Agricultural drone with sensors for mapping and crop analysis.",
+        },
+        price: {
+          cs: "120 000 Kč",
+          en: "$5,190",
+        },
+      },
+    ],
   },
   {
-    name: "REGEN Shadow Ops",
-    description: {
-      cs: "Pokročilá taktická dronová platforma",
-      en: "Advanced tactical drone platform",
+    title: {
+      cs: "Záchranářské drony",
+      en: "Rescue Drones",
     },
-    price: "$12,500",
+    items: [
+      {
+        name: "REGEN RescueEye",
+        description: {
+          cs: "Platforma s termokamerou pro pátrání a záchranné mise.",
+          en: "Thermal-equipped platform for search and rescue missions.",
+        },
+        price: {
+          cs: "150 000 Kč",
+          en: "$6,490",
+        },
+      },
+      {
+        name: "REGEN MedDrop",
+        description: {
+          cs: "Spolehlivý transportní dron pro zdravotnické a urgentní dodávky.",
+          en: "Reliable transport drone for medical and urgent deliveries.",
+        },
+        price: {
+          cs: "95 000 Kč",
+          en: "$4,090",
+        },
+      },
+    ],
   },
   {
-    name: "REGEN Velocity FPV",
-    description: {
-      cs: "Racing dron navržený pro maximální rychlost",
-      en: "Racing drone built for speed",
+    title: {
+      cs: "FPV závodní drony",
+      en: "FPV Racing Drones",
     },
-    price: "$2,200",
+    items: [
+      {
+        name: "REGEN Vortex",
+        description: {
+          cs: "Výkonný FPV model pro pokročilé piloty a závodní tratě.",
+          en: "High-performance FPV model for advanced pilots and race tracks.",
+        },
+        price: {
+          cs: "18 000 Kč",
+          en: "$779",
+        },
+      },
+      {
+        name: "REGEN Falcon",
+        description: {
+          cs: "Dostupnější závodní dron pro vstup do FPV světa.",
+          en: "More accessible racing drone for entering the FPV world.",
+        },
+        price: {
+          cs: "7 500 Kč",
+          en: "$329",
+        },
+      },
+    ],
   },
   {
-    name: "REGEN Atlas Pro",
-    description: {
-      cs: "Odolný průmyslový dron pro náročné nasazení",
-      en: "Heavy-duty industrial drone",
+    title: {
+      cs: "Bezpečnostní a strategické platformy",
+      en: "Security and Strategic Platforms",
     },
-    price: "$6,900",
+    items: [
+      {
+        name: "REGEN Skybridger",
+        description: {
+          cs: "Logistická platforma s dlouhým doletem pro náročné nasazení.",
+          en: "Long-range logistics platform for demanding deployments.",
+        },
+        price: {
+          cs: "250 000 Kč",
+          en: "$10,890",
+        },
+      },
+      {
+        name: "REGEN Skydiver",
+        description: {
+          cs: "Lehký koncept pro jednorázové nebo rychlé specializované mise.",
+          en: "Lightweight concept for one-off or rapid specialized missions.",
+        },
+        price: {
+          cs: "20 000 Kč",
+          en: "$869",
+        },
+      },
+      {
+        name: "REGEN Sentinel",
+        description: {
+          cs: "Dron s dlouhým doletem a rozšířenou senzorovou výbavou.",
+          en: "Long-range drone with an expanded sensor suite.",
+        },
+        price: {
+          cs: "300 000 Kč",
+          en: "$12,990",
+        },
+      },
+      {
+        name: "REGEN Guardian",
+        description: {
+          cs: "Monitoring hranic a perimetrů s vysokou provozní odolností.",
+          en: "Border and perimeter monitoring with high operational resilience.",
+        },
+        price: {
+          cs: "220 000 Kč",
+          en: "$9,490",
+        },
+      },
+    ],
   },
   {
-    name: "REGEN Nano Air",
-    description: {
-      cs: "Kompaktní osobní dron",
-      en: "Compact personal drone",
+    title: {
+      cs: "Reklamní a speciální nasazení",
+      en: "Advertising and Special Applications",
     },
-    price: "$799",
+    items: [
+      {
+        name: "REGEN Weightlifter",
+        description: {
+          cs: "Těžkotonážní nosič pro průmyslové a speciální přepravní úkoly.",
+          en: "Heavy-lift carrier for industrial and special transport missions.",
+        },
+        price: {
+          cs: "180 000 Kč",
+          en: "$7,790",
+        },
+      },
+      {
+        name: "REGEN Promo Fleet",
+        description: {
+          cs: "Sada reklamních dronů pro show, světelné sestavy a branding.",
+          en: "Advertising drone fleet for shows, light formations, and branding.",
+        },
+        price: {
+          cs: "50 000 – 120 000 Kč",
+          en: "$2,190 – $5,190",
+        },
+      },
+    ],
   },
 ];
 
@@ -58,17 +236,17 @@ export default function ProductsPage() {
 
   const copy = {
     cs: {
-      kicker: "Prémiové portfolio dronů",
-      title: "Regen Systems",
+      kicker: "Portfolio dronů REGEN",
+      title: "Kompletní výběr systémů",
       body:
-        "Navrženo pro rychlost, spolehlivost a přesnost napříč osobním, taktickým i průmyslovým nasazením.",
+        "Ceny se automaticky přepínají podle jazyka webu. V češtině zobrazujeme nabídku pro český trh, v angličtině orientační ceny v USD.",
       cta: "Přidat do košíku",
     },
     en: {
-      kicker: "Premium Drone Portfolio",
-      title: "Regen Systems",
+      kicker: "REGEN Drone Portfolio",
+      title: "Complete Systems Lineup",
       body:
-        "Engineered for speed, reliability, and precision across personal, tactical, and industrial missions.",
+        "Prices switch automatically with the site language. Czech shows our Czech-market pricing, English displays indicative USD pricing.",
       cta: "Add to cart",
     },
   } as const;
@@ -78,35 +256,48 @@ export default function ProductsPage() {
   return (
     <main className="page-shell">
       <section className="content-shell">
-        <div className="mx-auto flex max-w-[39rem] flex-col items-center text-center">
+        <div className="mx-auto flex max-w-[45rem] flex-col items-center text-center">
           <span className="section-kicker">{t.kicker}</span>
           <h1 className="hero-title mt-6 text-balance text-[2.8rem] font-semibold uppercase tracking-[0.3em] text-white sm:text-[3.95rem] md:text-[4.25rem]">
             {t.title}
           </h1>
-          <p className="hero-subtitle mt-5 max-w-[32rem] text-pretty">
+          <p className="hero-subtitle mt-5 max-w-[38rem] text-pretty">
             {t.body}
           </p>
         </div>
 
-        <div className="product-grid">
-          {products.map((product) => (
-            <article key={product.name} className="product-card glass-card rounded-3xl px-5 py-5 text-left">
-              <h2 className="text-[1.03rem] font-semibold tracking-tight text-white md:text-[1.55rem]">
-                {product.name}
+        <div className="mx-auto mt-14 flex max-w-[72rem] flex-col gap-12">
+          {categories.map((category) => (
+            <section key={category.title.en}>
+              <h2 className="mb-5 text-xl font-semibold uppercase tracking-[0.18em] text-white">
+                {category.title[language]}
               </h2>
-              <p className="mt-2 text-sm text-slate-300">
-                {product.description[language]}
-              </p>
-              <p className="mt-4 text-[1.45rem] font-semibold text-cyan-200">
-                {product.price}
-              </p>
-              <button
-                type="button"
-                className="btn-cyan mt-5 w-full justify-center rounded-full py-3 font-semibold uppercase"
-              >
-                {t.cta}
-              </button>
-            </article>
+
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {category.items.map((product) => (
+                  <article
+                    key={product.name}
+                    className="glass-card rounded-3xl px-5 py-5 text-left"
+                  >
+                    <h3 className="text-[1.03rem] font-semibold tracking-tight text-white md:text-[1.4rem]">
+                      {product.name}
+                    </h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                      {product.description[language]}
+                    </p>
+                    <p className="mt-4 text-[1.45rem] font-semibold text-cyan-200">
+                      {product.price[language]}
+                    </p>
+                    <button
+                      type="button"
+                      className="btn-cyan mt-5 w-full justify-center rounded-full py-3 font-semibold uppercase"
+                    >
+                      {t.cta}
+                    </button>
+                  </article>
+                ))}
+              </div>
+            </section>
           ))}
         </div>
 

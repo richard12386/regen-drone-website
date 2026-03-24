@@ -2,18 +2,50 @@
 
 import { useLanguage } from "@/components/site/language-provider";
 
-const defenseCapabilities = [
+const defenseSystems = [
   {
-    cs: "Modulární vzdušné platformy schopné reagovat na změny terénu i profilu hrozeb.",
-    en: "Mission-adaptive airframes for changing terrain and threat profiles.",
+    name: "REGEN Skybridger",
+    detail: {
+      cs: "Logistická platforma s dlouhým doletem pro náročné nasazení.",
+      en: "Long-range logistics platform for demanding deployments.",
+    },
+    price: {
+      cs: "250 000 Kč",
+      en: "$10,890",
+    },
   },
   {
-    cs: "Šifrované telemetrické linky s odolnými komunikačními protokoly pro terén.",
-    en: "Encrypted telemetry links with resilient field communication protocols.",
+    name: "REGEN Skydiver",
+    detail: {
+      cs: "Lehký koncept pro jednorázové nebo rychlé specializované mise.",
+      en: "Lightweight concept for one-off or rapid specialized missions.",
+    },
+    price: {
+      cs: "20 000 Kč",
+      en: "$869",
+    },
   },
   {
-    cs: "Systémy rychlého nasazení pro průzkumné a zásahové týmy.",
-    en: "Rapid deployment systems for reconnaissance and response teams.",
+    name: "REGEN Sentinel",
+    detail: {
+      cs: "Dron s dlouhým doletem a rozšířenou senzorovou výbavou.",
+      en: "Long-range drone with an expanded sensor suite.",
+    },
+    price: {
+      cs: "300 000 Kč",
+      en: "$12,990",
+    },
+  },
+  {
+    name: "REGEN Guardian",
+    detail: {
+      cs: "Monitoring hranic a perimetrů s vysokou provozní odolností.",
+      en: "Border and perimeter monitoring with high operational resilience.",
+    },
+    price: {
+      cs: "220 000 Kč",
+      en: "$9,490",
+    },
   },
 ];
 
@@ -23,15 +55,15 @@ export default function DefensePage() {
   const copy = {
     cs: {
       kicker: "Obranné systémy",
-      title: "Autonomie připravená pro misi",
+      title: "Strategické platformy",
       body:
-        "Strategické vzdušné platformy určené pro dohled, rychlé vyhodnocení situace a spolehlivý provoz v náročném prostředí.",
+        "Řada REGEN Defense je zaměřená na průzkum, monitoring, logistiku a specializované mise ve složitých podmínkách.",
     },
     en: {
       kicker: "Defense Systems",
-      title: "Mission Ready Autonomy",
+      title: "Strategic Platforms",
       body:
-        "Strategic aerial platforms designed for surveillance, rapid assessment, and high-confidence operation in demanding environments.",
+        "The REGEN Defense line is focused on reconnaissance, monitoring, logistics, and specialized missions in demanding environments.",
     },
   } as const;
 
@@ -45,19 +77,23 @@ export default function DefensePage() {
           <h1 className="hero-title mt-6 text-balance text-5xl font-semibold uppercase tracking-[0.28em] text-white sm:text-6xl md:text-7xl">
             {t.title}
           </h1>
-          <p className="hero-subtitle mt-5 max-w-2xl text-pretty">
-            {t.body}
-          </p>
+          <p className="hero-subtitle mt-5 max-w-2xl text-pretty">{t.body}</p>
         </div>
 
-        <div className="mx-auto mt-14 max-w-4xl space-y-4">
-          {defenseCapabilities.map((capability) => (
+        <div className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-2">
+          {defenseSystems.map((system) => (
             <article
-              key={capability.en}
-              className="glass-card rounded-3xl px-6 py-6"
+              key={system.name}
+              className="glass-card rounded-3xl px-6 py-6 text-left"
             >
-              <p className="text-base leading-7 text-slate-200">
-                {capability[language]}
+              <h2 className="text-xl font-semibold text-white">
+                {system.name}
+              </h2>
+              <p className="mt-3 text-sm leading-6 text-slate-300">
+                {system.detail[language]}
+              </p>
+              <p className="mt-4 text-[1.4rem] font-semibold text-cyan-200">
+                {system.price[language]}
               </p>
             </article>
           ))}
