@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LanguageProvider } from "@/components/site/language-provider";
 import { Navbar } from "@/components/site/navbar";
 import "./globals.css";
 
@@ -15,9 +16,11 @@ export default function RootLayout({
   return (
     <html lang="cs">
       <body>
-        <div className="grid-overlay" />
-        <Navbar />
-        {children}
+        <LanguageProvider>
+          <div className="grid-overlay" />
+          <Navbar />
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

@@ -1,30 +1,61 @@
+"use client";
+
+import { useLanguage } from "@/components/site/language-provider";
+
 const racingSystems = [
   {
     name: "Velocity FPV",
-    detail: "Carbon racing frame with low-latency telemetry.",
+    detail: {
+      cs: "Karbonový závodní rám s telemetrií s nízkou latencí.",
+      en: "Carbon racing frame with low-latency telemetry.",
+    },
   },
   {
     name: "Pulse Drive",
-    detail: "Competition-tuned motors for aggressive acceleration.",
+    detail: {
+      cs: "Motory laděné pro závodní nasazení a agresivní akceleraci.",
+      en: "Competition-tuned motors for aggressive acceleration.",
+    },
   },
   {
     name: "Track Sync",
-    detail: "Live diagnostics and pit-lane performance analytics.",
+    detail: {
+      cs: "Živá diagnostika a analytika výkonu přímo z depa.",
+      en: "Live diagnostics and pit-lane performance analytics.",
+    },
   },
 ];
 
 export default function RacingPage() {
+  const { language } = useLanguage();
+
+  const copy = {
+    cs: {
+      kicker: "Závodní divize",
+      title: "Rychlost bez kompromisů",
+      body:
+        "FPV platformy navržené pro přesné průjezdy zatáčkami, okamžitou odezvu a opakovatelné nastavení pro závodní den.",
+    },
+    en: {
+      kicker: "Racing Division",
+      title: "Speed Without Drift",
+      body:
+        "FPV platforms engineered for precision cornering, split-second response, and repeatable race-day tuning.",
+    },
+  } as const;
+
+  const t = copy[language];
+
   return (
     <main className="page-shell">
       <section className="content-shell">
         <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
-          <span className="section-kicker">Racing Division</span>
+          <span className="section-kicker">{t.kicker}</span>
           <h1 className="hero-title mt-6 text-balance text-5xl font-semibold uppercase tracking-[0.28em] text-white sm:text-6xl md:text-7xl">
-            Speed Without Drift
+            {t.title}
           </h1>
           <p className="hero-subtitle mt-5 max-w-2xl text-pretty">
-            FPV platforms engineered for precision cornering, split-second
-            response, and repeatable race-day tuning.
+            {t.body}
           </p>
         </div>
 
@@ -33,7 +64,7 @@ export default function RacingPage() {
             <article key={item.name} className="glass-card rounded-3xl px-5 py-6">
               <h2 className="text-xl font-semibold text-white">{item.name}</h2>
               <p className="mt-3 text-sm leading-6 text-slate-300">
-                {item.detail}
+                {item.detail[language]}
               </p>
             </article>
           ))}
