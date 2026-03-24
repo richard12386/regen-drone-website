@@ -13,18 +13,21 @@ export function Navbar() {
     { href: "/defense", label: "Defense" },
   ];
 
+  const visibleLinks =
+    pathname === "/" ? links.filter((link) => link.href !== "/") : links;
+
   return (
     <header className="sticky top-0 z-50 border-b border-white/5 bg-[#02050d]/74 backdrop-blur-xl">
-      <div className="mx-auto flex h-11 w-full max-w-[1600px] items-center justify-between px-5 md:px-7">
+      <div className="mx-auto flex h-11 w-full max-w-[1600px] items-center justify-between px-2 md:px-3">
         <Link
           href="/"
-          className="text-[10px] font-semibold uppercase tracking-[0.34em] text-white"
+          className="text-xs font-semibold uppercase tracking-[0.34em] text-white md:text-[13px]"
         >
           Regen
         </Link>
 
-        <nav className="flex items-center gap-4 text-[9px] text-slate-300 md:gap-6">
-          {links.map((link) => {
+        <nav className="flex items-center gap-5 text-[11px] text-slate-300 md:gap-7 md:text-xs">
+          {visibleLinks.map((link) => {
             const isActive = pathname === link.href;
 
             return (
