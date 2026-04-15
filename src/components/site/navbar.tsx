@@ -37,6 +37,13 @@ export function Navbar() {
         en: "Defense",
       },
     },
+    {
+      href: "/about",
+      label: {
+        cs: "O nás",
+        en: "About",
+      },
+    },
   ];
 
   const visibleLinks =

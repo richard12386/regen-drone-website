@@ -45,7 +45,7 @@ export default function Page() {
             <Link href="/products" className="btn-cyan min-w-52 rounded-full uppercase">
               {t.primary}
             </Link>
-            <Link href="/defense" className="btn-outline min-w-40 rounded-full uppercase">
+            <Link href="/about" className="btn-outline min-w-40 rounded-full uppercase">
               {t.secondary}
             </Link>
           </div>
