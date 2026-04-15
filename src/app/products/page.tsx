@@ -188,7 +188,7 @@ const categories: Category[] = [
           cs: "Těžkotonážní nosič pro průmyslové a speciální přepravní úkoly.",
           en: "Heavy-lift carrier for industrial and special transport missions.",
         },
-        price: { cs: "180 000 Kč", en: "$7,790" },
+        price: { cs: "390 000 Kč", en: "$16,990" },
         specs: weightlifterSpecs,
       },
       {
