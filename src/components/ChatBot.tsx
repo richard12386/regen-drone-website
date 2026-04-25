@@ -1,7 +1,10 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/components/site/language-provider";
 import styles from "./ChatBot.module.css";
+
+type Language = "cs" | "en";
 
 type Drone = {
   id: number;
@@ -16,18 +19,103 @@ type Message =
   | { role: "user"; text: string }
   | { role: "bot"; text: string; drones?: Drone[] };
 
-function formatPrice(price: number): string {
-  return price.toLocaleString("cs-CZ") + "\u00a0Kč";
-}
-
-const WELCOME: Message = {
-  role: "bot",
-  text: "Zdravím! Jsem váš průvodce světem REGEN dronů. Popište mi vaše potřeby — ať už hledáte dron na cestování, pro firmu, FPV závody nebo náročné mise, vyberu pro vás ten správný stroj.",
+const USD_PRICE_BY_ID: Record<number, string> = {
+  1: "$429",
+  2: "$649",
+  3: "$89",
+  4: "$3,390",
+  5: "$5,190",
+  6: "$6,490",
+  7: "$4,090",
+  8: "$779",
+  9: "$329",
+  10: "$10,890",
+  11: "$869",
+  12: "$12,990",
+  13: "$9,490",
+  14: "$16,990",
+  15: "$2,190 - $5,190",
 };
 
+const CHAT_COPY: Record<
+  Language,
+  {
+    welcome: string;
+    unavailable: string;
+    ariaOpen: string;
+    ariaClose: string;
+    titleOpen: string;
+    titleClose: string;
+    dialogLabel: string;
+    headerTitle: string;
+    headerSub: string;
+    closeLabel: string;
+    placeholder: string;
+    sendLabel: string;
+    viewLabel: string;
+  }
+> = {
+  cs: {
+    welcome:
+      "Zdravím! Jsem váš průvodce světem REGEN dronů. Popište mi vaše potřeby — ať už hledáte dron na cestování, pro firmu, FPV závody nebo náročné mise, vyberu pro vás ten správný stroj.",
+    unavailable:
+      "Omlouváme se, momentálně nedokáži odpovědět. Zkuste to prosím za chvíli.",
+    ariaOpen: "Otevřít REGEN asistenta",
+    ariaClose: "Zavřít chat",
+    titleOpen: "Zeptat se na drony",
+    titleClose: "Zavřít chat",
+    dialogLabel: "REGEN Drone Asistent",
+    headerTitle: "REGEN Asistent",
+    headerSub: "Drone Expert · Online",
+    closeLabel: "Zavřít",
+    placeholder: "Napište svůj dotaz…",
+    sendLabel: "Odeslat zprávu",
+    viewLabel: "Zobrazit",
+  },
+  en: {
+    welcome:
+      "Hello! I am your guide to REGEN drones. Tell me what you need — whether you want a travel drone, a business platform, an FPV racer, or a system for demanding missions, I will help you choose the right machine.",
+    unavailable:
+      "Sorry, I cannot answer right now. Please try again in a moment.",
+    ariaOpen: "Open REGEN assistant",
+    ariaClose: "Close chat",
+    titleOpen: "Ask about drones",
+    titleClose: "Close chat",
+    dialogLabel: "REGEN Drone Assistant",
+    headerTitle: "REGEN Assistant",
+    headerSub: "Drone Expert · Online",
+    closeLabel: "Close",
+    placeholder: "Type your question…",
+    sendLabel: "Send message",
+    viewLabel: "View",
+  },
+};
+
+function formatPrice(drone: Drone, language: Language): string {
+  if (language === "en") {
+    return USD_PRICE_BY_ID[drone.id] ?? `$${Math.max(
+      1,
+      Math.round(drone.price / 23)
+    ).toLocaleString("en-US")}`;
+  }
+
+  return drone.price.toLocaleString("cs-CZ") + "\u00a0Kč";
+}
+
+function getWelcomeMessage(language: Language): Message {
+  return {
+    role: "bot",
+    text: CHAT_COPY[language].welcome,
+  };
+}
+
 export default function ChatBot() {
+  const { language } = useLanguage();
+  const copy = CHAT_COPY[language];
   const [open, setOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([WELCOME]);
+  const [messages, setMessages] = useState<Message[]>(() =>
+    [getWelcomeMessage(language)]
+  );
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -45,6 +133,12 @@ export default function ChatBot() {
     }
   }, [open]);
 
+  useEffect(() => {
+    setMessages([getWelcomeMessage(language)]);
+    setInput("");
+    setLoading(false);
+  }, [language]);
+
   async function handleSend() {
     const text = input.trim();
     if (!text || loading) return;
@@ -57,7 +151,7 @@ export default function ChatBot() {
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: text }),
+        body: JSON.stringify({ message: text, language }),
       });
 
       if (!res.ok) {
@@ -74,7 +168,7 @@ export default function ChatBot() {
         ...prev,
         {
           role: "bot",
-          text: "Omlouváme se, momentálně nedokáži odpovědět. Zkuste to prosím za chvíli.",
+          text: copy.unavailable,
         },
       ]);
     } finally {
@@ -99,8 +193,8 @@ export default function ChatBot() {
       <button
         className={styles.bubble}
         onClick={() => setOpen((o) => !o)}
-        aria-label={open ? "Zavřít chat" : "Otevřít REGEN asistenta"}
-        title={open ? "Zavřít chat" : "Zeptat se na drony"}
+        aria-label={open ? copy.ariaClose : copy.ariaOpen}
+        title={open ? copy.titleClose : copy.titleOpen}
       >
         {open ? (
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -116,20 +210,20 @@ export default function ChatBot() {
 
       {/* ── Chat panel ───────────────────────────────────────────────────── */}
       {open && (
-        <div className={styles.panel} role="dialog" aria-label="REGEN Drone Asistent">
+        <div className={styles.panel} role="dialog" aria-label={copy.dialogLabel}>
           {/* Header */}
           <div className={styles.header}>
             <div className={styles.headerLeft}>
               <span className={styles.headerDot} />
               <div>
-                <div className={styles.headerTitle}>REGEN Asistent</div>
-                <div className={styles.headerSub}>Drone Expert · Online</div>
+                <div className={styles.headerTitle}>{copy.headerTitle}</div>
+                <div className={styles.headerSub}>{copy.headerSub}</div>
               </div>
             </div>
             <button
               className={styles.closeBtn}
               onClick={() => setOpen(false)}
-              aria-label="Zavřít"
+              aria-label={copy.closeLabel}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -169,7 +263,7 @@ export default function ChatBot() {
                               {drone.category}
                             </span>
                             <span className={styles.droneCardPrice}>
-                              {formatPrice(drone.price)}
+                              {formatPrice(drone, language)}
                             </span>
                           </div>
                           <div className={styles.droneCardDesc}>{drone.desc}</div>
@@ -177,9 +271,9 @@ export default function ChatBot() {
                         <button
                           className={styles.droneCardBtn}
                           onClick={() => handleViewDrone(drone.id)}
-                          aria-label={`Zobrazit ${drone.name}`}
+                          aria-label={`${copy.viewLabel} ${drone.name}`}
                         >
-                          Zobrazit
+                          {copy.viewLabel}
                         </button>
                       </div>
                     ))}
@@ -211,7 +305,7 @@ export default function ChatBot() {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Napište svůj dotaz…"
+              placeholder={copy.placeholder}
               disabled={loading}
               maxLength={300}
               autoComplete="off"
@@ -220,7 +314,7 @@ export default function ChatBot() {
               className={styles.sendBtn}
               onClick={handleSend}
               disabled={loading || !input.trim()}
-              aria-label="Odeslat zprávu"
+              aria-label={copy.sendLabel}
             >
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="22" y1="2" x2="11" y2="13" />

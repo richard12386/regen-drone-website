@@ -12,6 +12,6 @@
   {"id": 11, "name": "REGEN Skydiver", "price": 20000, "category": "Strategické", "tags": ["lehký", "rychlé mise", "speciální použití"], "desc": "Lehký dron pro rychlé mise."},
   {"id": 12, "name": "REGEN Sentinel", "price": 300000, "category": "Strategické", "tags": ["dlouhý dolet", "monitoring", "senzory"], "desc": "Dron pro dlouhodobý monitoring."},
   {"id": 13, "name": "REGEN Guardian", "price": 220000, "category": "Strategické", "tags": ["bezpečnost", "hranice", "odolnost"], "desc": "Dron pro monitoring hranic."},
-  {"id": 14, "name": "REGEN Weightlifter", "price": 180000, "category": "Speciální", "tags": ["heavy-lift", "průmysl", "náklad"], "desc": "Těžkotonážní dron pro průmysl."},
+  {"id": 14, "name": "REGEN Weightlifter", "price": 390000, "category": "Speciální", "tags": ["heavy-lift", "průmysl", "náklad"], "desc": "Těžkotonážní dron pro průmysl."},
   {"id": 15, "name": "REGEN Promo Fleet", "price": 80000, "category": "Speciální", "tags": ["reklama", "show", "light show"], "desc": "Sada dronů pro světelné show."}
 ]
