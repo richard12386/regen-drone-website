@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { LanguageProvider } from "@/components/site/language-provider";
 import { Navbar } from "@/components/site/navbar";
+import ChatBot from "@/components/ChatBot";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
           <div className="grid-overlay" />
           <Navbar />
           {children}
+          <ChatBot />
         </LanguageProvider>
       </body>
     </html>

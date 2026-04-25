@@ -1,0 +1,17 @@
+[
+  {"id": 1, "name": "REGEN AirSnap", "price": 9990, "category": "Osobní", "tags": ["kompaktní", "cestování", "lehké ovládání"], "desc": "Kompaktní dron ideální pro každodenní létání."},
+  {"id": 2, "name": "REGEN TravelFly", "price": 14990, "category": "Osobní", "tags": ["skládací", "delší výdrž", "cestování"], "desc": "Skládací dron s delší výdrží baterie."},
+  {"id": 3, "name": "REGEN Junior", "price": 1990, "category": "Osobní", "tags": ["začátečníci", "výuka", "jednoduchý"], "desc": "Dostupný model pro začátečníky."},
+  {"id": 4, "name": "REGEN Inspect", "price": 79000, "category": "Firemní", "tags": ["inspekce", "stavebnictví", "technické použití"], "desc": "Inspekční dron pro kontrolu budov."},
+  {"id": 5, "name": "REGEN AgroScan", "price": 120000, "category": "Firemní", "tags": ["zemědělství", "mapování", "analýza"], "desc": "Dron pro analýzu zemědělských ploch."},
+  {"id": 6, "name": "REGEN RescueEye", "price": 150000, "category": "Záchranářské", "tags": ["termokamera", "záchrana", "noční použití"], "desc": "Dron s termokamerou pro pátrací mise."},
+  {"id": 7, "name": "REGEN MedDrop", "price": 95000, "category": "Záchranářské", "tags": ["transport", "zdravotnictví", "rychlé doručení"], "desc": "Dron pro transport zdravotnického materiálu."},
+  {"id": 8, "name": "REGEN Vortex", "price": 18000, "category": "FPV", "tags": ["rychlost", "závody", "pokročilý"], "desc": "Výkonný FPV dron pro závodní tratě."},
+  {"id": 9, "name": "REGEN Falcon", "price": 7500, "category": "FPV", "tags": ["začátečníci", "FPV", "dostupný"], "desc": "Dostupnější FPV model."},
+  {"id": 10, "name": "REGEN Skybridger", "price": 250000, "category": "Strategické", "tags": ["dlouhý dolet", "logistika", "profesionální"], "desc": "Logistická platforma s dlouhým doletem."},
+  {"id": 11, "name": "REGEN Skydiver", "price": 20000, "category": "Strategické", "tags": ["lehký", "rychlé mise", "speciální použití"], "desc": "Lehký dron pro rychlé mise."},
+  {"id": 12, "name": "REGEN Sentinel", "price": 300000, "category": "Strategické", "tags": ["dlouhý dolet", "monitoring", "senzory"], "desc": "Dron pro dlouhodobý monitoring."},
+  {"id": 13, "name": "REGEN Guardian", "price": 220000, "category": "Strategické", "tags": ["bezpečnost", "hranice", "odolnost"], "desc": "Dron pro monitoring hranic."},
+  {"id": 14, "name": "REGEN Weightlifter", "price": 180000, "category": "Speciální", "tags": ["heavy-lift", "průmysl", "náklad"], "desc": "Těžkotonážní dron pro průmysl."},
+  {"id": 15, "name": "REGEN Promo Fleet", "price": 80000, "category": "Speciální", "tags": ["reklama", "show", "light show"], "desc": "Sada dronů pro světelné show."}
+]

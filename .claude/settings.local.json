@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(claude-api)",
+      "Skill(claude-api:*)",
+      "Bash(npm install *)",
+      "Bash(ls c:/Users/Richard2011/Desktop/regen-drone-website/.env*)",
+      "Bash(npx tsc *)",
+      "Bash(npm uninstall *)"
+    ]
+  }
+}
