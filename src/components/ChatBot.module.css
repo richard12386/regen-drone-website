@@ -8,11 +8,11 @@
   height: 3.25rem;
   border-radius: 2px;
   border: 1px solid var(--line-strong);
-  background: var(--bg-elev);
+  background: rgba(21, 32, 37, 0.9);
   box-shadow:
-    0 0 0 1px rgba(201, 169, 106, 0.08) inset,
+    0 0 0 1px rgba(73, 196, 193, 0.08) inset,
     0 8px 28px rgba(0, 0, 0, 0.6),
-    0 0 32px rgba(201, 169, 106, 0.1);
+    0 0 32px rgba(73, 196, 193, 0.1);
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -24,9 +24,9 @@
   transform: scale(1.06);
   border-color: var(--accent-deep);
   box-shadow:
-    0 0 0 1px rgba(201, 169, 106, 0.15) inset,
+    0 0 0 1px rgba(73, 196, 193, 0.15) inset,
     0 10px 36px rgba(0, 0, 0, 0.7),
-    0 0 48px rgba(201, 169, 106, 0.18);
+    0 0 48px rgba(73, 196, 193, 0.18);
 }
 .bubble svg {
   width: 1.25rem;
@@ -48,11 +48,11 @@
   flex-direction: column;
   border-radius: 2px;
   border: 1px solid var(--line-strong);
-  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
+  background: linear-gradient(180deg, #0d1b1f 0%, var(--bg-0) 100%);
   box-shadow:
     0 0 0 1px rgba(255, 255, 255, 0.03) inset,
     0 24px 60px rgba(0, 0, 0, 0.85),
-    0 0 60px rgba(201, 169, 106, 0.06);
+    0 0 60px rgba(73, 196, 193, 0.06);
   overflow: hidden;
   animation: chatSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -75,7 +75,7 @@
   justify-content: space-between;
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--line);
-  background: linear-gradient(90deg, rgba(12, 12, 15, 0.95) 0%, rgba(19, 19, 22, 0.95) 100%);
+  background: linear-gradient(90deg, rgba(7, 13, 14, 0.95) 0%, rgba(12, 21, 25, 0.95) 100%);
   flex-shrink: 0;
 }
 .headerLeft {
@@ -88,7 +88,7 @@
   height: 0.45rem;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 8px rgba(201, 169, 106, 0.7);
+  box-shadow: 0 0 8px rgba(73, 196, 193, 0.7);
   animation: pulse 2.5s ease-in-out infinite;
 }
 @keyframes pulse {
@@ -137,7 +137,7 @@
   flex-direction: column;
   gap: 0.75rem;
   scrollbar-width: thin;
-  scrollbar-color: rgba(201, 169, 106, 0.2) transparent;
+  scrollbar-color: rgba(73, 196, 193, 0.2) transparent;
 }
 .messages::-webkit-scrollbar {
   width: 2px;
@@ -146,7 +146,7 @@
   background: transparent;
 }
 .messages::-webkit-scrollbar-thumb {
-  background: rgba(201, 169, 106, 0.2);
+  background: rgba(73, 196, 193, 0.2);
   border-radius: 2px;
 }
 
@@ -171,13 +171,13 @@
   line-height: 1.55;
 }
 .msgBubbleUser {
-  background: var(--bg-elev);
-  border: 1px solid rgba(201, 169, 106, 0.3);
+  background: rgba(21, 32, 37, 0.9);
+  border: 1px solid rgba(73, 196, 193, 0.3);
   color: var(--text);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 .msgBubbleBot {
-  background: rgba(19, 19, 22, 0.85);
+  background: rgba(15, 26, 30, 0.85);
   border: 1px solid var(--line);
   color: var(--text-dim);
   backdrop-filter: blur(12px);
@@ -188,7 +188,7 @@
   display: flex;
   gap: 0.28rem;
   padding: 0.6rem 0.75rem;
-  background: rgba(19, 19, 22, 0.85);
+  background: rgba(15, 26, 30, 0.85);
   border: 1px solid var(--line);
   border-radius: 2px;
   width: fit-content;
@@ -216,7 +216,7 @@
   width: 100%;
 }
 .droneCard {
-  background: linear-gradient(180deg, rgba(24, 24, 28, 0.7) 0%, rgba(12, 12, 15, 0.7) 100%);
+  background: linear-gradient(180deg, rgba(21, 32, 37, 0.7) 0%, rgba(10, 18, 21, 0.7) 100%);
   border: 1px solid var(--line);
   border-radius: 2px;
   padding: 0.6rem 0.75rem;
@@ -228,7 +228,7 @@
 }
 .droneCard:hover {
   border-color: var(--line-strong);
-  box-shadow: 0 0 18px rgba(201, 169, 106, 0.08);
+  box-shadow: 0 0 18px rgba(73, 196, 193, 0.08);
 }
 .droneCardBody {
   flex: 1;
@@ -297,12 +297,12 @@
   gap: 0.5rem;
   padding: 0.625rem 0.75rem;
   border-top: 1px solid var(--line);
-  background: rgba(8, 8, 10, 0.8);
+  background: rgba(5, 10, 11, 0.9);
   flex-shrink: 0;
 }
 .input {
   flex: 1;
-  background: var(--bg-2);
+  background: rgba(15, 26, 30, 0.95);
   border: 1px solid var(--line-strong);
   border-radius: 2px;
   padding: 0.45rem 0.7rem;
@@ -316,8 +316,8 @@
   color: var(--faint);
 }
 .input:focus {
-  border-color: rgba(201, 169, 106, 0.4);
-  box-shadow: 0 0 0 2px rgba(201, 169, 106, 0.08);
+  border-color: rgba(73, 196, 193, 0.4);
+  box-shadow: 0 0 0 2px rgba(73, 196, 193, 0.08);
 }
 .sendBtn {
   flex-shrink: 0;
@@ -325,7 +325,7 @@
   height: 2.1rem;
   border-radius: 2px;
   border: 1px solid var(--line-strong);
-  background: var(--bg-elev);
+  background: rgba(21, 32, 37, 0.9);
   color: var(--accent);
   cursor: pointer;
   display: flex;
@@ -335,7 +335,7 @@
 }
 .sendBtn:hover:not(:disabled) {
   border-color: var(--accent-deep);
-  background: rgba(201, 169, 106, 0.08);
+  background: rgba(73, 196, 193, 0.08);
   color: var(--accent-soft);
 }
 .sendBtn:disabled {

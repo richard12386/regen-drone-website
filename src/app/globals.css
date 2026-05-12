@@ -1,28 +1,28 @@
 @import "tailwindcss";
 
 :root {
-  /* Premium charcoal base */
-  --bg-0: #08080a;
-  --bg-1: #0c0c0f;
-  --bg-2: #131316;
-  --bg-elev: #18181c;
+  /* Deep teal base */
+  --bg-0: #070d0e;
+  --bg-1: #0a1215;
+  --bg-2: #0f1a1e;
+  --bg-elev: #152025;
 
-  /* Hairlines & borders */
-  --line: rgba(255, 255, 255, 0.06);
-  --line-strong: rgba(255, 255, 255, 0.12);
+  /* Hairlines & borders — teal-tinted */
+  --line: rgba(73, 196, 193, 0.07);
+  --line-strong: rgba(73, 196, 193, 0.15);
 
   /* Text */
-  --text: #f5f5f3;
-  --text-dim: #c8c6c0;
-  --muted: #8a8881;
-  --faint: #565551;
+  --text: #eef2f3;
+  --text-dim: #a8bdc3;
+  --muted: #7b99a4;
+  --faint: #4a6975;
 
-  /* Champagne / brushed bronze accent */
-  --accent: #c9a96a;
-  --accent-soft: #d4ba85;
-  --accent-deep: #a88a52;
+  /* Teal accent palette */
+  --accent: #49c4c1;
+  --accent-soft: #72d4d2;
+  --accent-deep: #34647a;
 
-  /* Legacy aliases for any remaining references */
+  /* Legacy aliases */
   --cyan: var(--accent);
   --cyan-strong: var(--accent-deep);
 }
@@ -44,9 +44,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-0);
   background-image:
-    radial-gradient(1400px 700px at 85% -5%, rgba(201, 169, 106, 0.05), transparent 55%),
-    radial-gradient(1100px 600px at 10% 110%, rgba(255, 255, 255, 0.025), transparent 60%),
-    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 50%, #050507 100%);
+    radial-gradient(1400px 700px at 85% -5%, rgba(43, 85, 101, 0.22), transparent 55%),
+    radial-gradient(1100px 600px at 10% 110%, rgba(73, 196, 193, 0.05), transparent 60%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 50%, #040a0b 100%);
   background-attachment: fixed;
   position: relative;
   overflow-x: hidden;
@@ -122,7 +122,7 @@ a {
   font-weight: 400;
 }
 
-/* Primary button — solid warm white, hover to champagne */
+/* Primary button — solid near-white, hover to teal */
 .btn-cyan {
   display: inline-flex;
   align-items: center;
@@ -131,15 +131,16 @@ a {
   font-size: 11px;
   font-weight: 500;
   transition: all 300ms;
-  color: #0a0a0a;
+  color: #070d0e;
   letter-spacing: 0.22em;
-  background: #f5f5f3;
+  background: var(--text);
   border-radius: 2px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(238, 242, 243, 0.2);
 }
 
 .btn-cyan:hover {
   background: var(--accent);
+  color: #070d0e;
 }
 
 /* Hairline outline button */
@@ -229,14 +230,14 @@ a {
   padding: 1.5rem;
   transition: all 500ms;
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(24, 24, 28, 0.6) 0%, rgba(12, 12, 15, 0.6) 100%);
+  background: linear-gradient(180deg, rgba(21, 32, 37, 0.6) 0%, rgba(10, 18, 21, 0.6) 100%);
   backdrop-filter: blur(20px);
   border-radius: 2px;
 }
 
 .glass-card:hover {
   border-color: var(--line-strong);
-  background: linear-gradient(180deg, rgba(28, 28, 32, 0.8) 0%, rgba(16, 16, 19, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(27, 40, 47, 0.8) 0%, rgba(15, 26, 30, 0.8) 100%);
 }
 
 /* Floating annotation card around the 3D drone */
@@ -265,7 +266,7 @@ a {
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
-  box-shadow: 0 0 8px rgba(201, 169, 106, 0.5);
+  box-shadow: 0 0 8px rgba(73, 196, 193, 0.5);
 }
 
 .anno-card.dot-right::before { right: -3px; }
