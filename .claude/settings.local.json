@@ -6,7 +6,15 @@
       "Bash(npm install *)",
       "Bash(ls c:/Users/Richard2011/Desktop/regen-drone-website/.env*)",
       "Bash(npx tsc *)",
-      "Bash(npm uninstall *)"
+      "Bash(npm uninstall *)",
+      "Bash(findstr \"three\\\\|fiber\\\\|drei\")",
+      "Bash(node -e \"require\\('three'\\); console.log\\('three ok'\\)\")",
+      "Bash(node -e \"require\\('@react-three/fiber'\\); console.log\\('fiber ok'\\)\")",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(node -e \"require\\('@react-three/postprocessing'\\); console.log\\('postprocessing ok'\\)\")",
+      "Bash(curl -s -o /dev/null -w \"HTTP: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"GET /: %{http_code} \\(%{time_total}s\\)\\\\n\" http://localhost:3000/)"
     ]
   }
 }
