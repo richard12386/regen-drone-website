@@ -170,7 +170,7 @@ export default function AboutPage() {
         <h1 className="hero-title mt-6 whitespace-pre-line text-[2.4rem] font-semibold uppercase tracking-[0.2em] text-white sm:text-[3.2rem] md:text-[3.8rem]">
           {t.heroTitle}
         </h1>
-        <p className="hero-subtitle mt-6 max-w-2xl text-pretty text-slate-300">
+        <p className="hero-subtitle mt-6 max-w-2xl text-pretty text-[var(--text-dim)]">
           {t.heroLead}
         </p>
         <div className="soft-divider mt-10 max-w-[22rem]" />
@@ -179,13 +179,13 @@ export default function AboutPage() {
       {/* ── Kdo jsme / Who We Are ── */}
       <section className="content-shell mx-auto max-w-3xl py-16">
         <h2 className="section-kicker mb-4 text-left">{t.whoTitle}</h2>
-        <p className="text-base leading-relaxed text-slate-300">{t.whoText}</p>
+        <p className="text-base leading-relaxed text-[var(--text-dim)]">{t.whoText}</p>
       </section>
 
       {/* ── Proč projekt vznikl / Why We Started ── */}
       <section className="content-shell mx-auto max-w-3xl border-t border-white/5 py-16">
         <h2 className="section-kicker mb-4 text-left">{t.whyTitle}</h2>
-        <p className="text-base leading-relaxed text-slate-300">{t.whyText}</p>
+        <p className="text-base leading-relaxed text-[var(--text-dim)]">{t.whyText}</p>
       </section>
 
       {/* ── Co nabízíme / What We Offer ── */}
@@ -194,11 +194,10 @@ export default function AboutPage() {
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {t.categories.map((cat) => (
             <div key={cat.name} className="glass-card flex flex-col gap-2 p-6">
-              <span className="text-2xl">{cat.icon}</span>
-              <h3 className="text-sm font-semibold uppercase tracking-widest text-white">
+              <h3 className="text-sm font-medium uppercase tracking-[0.22em] text-[var(--text)]">
                 {cat.name}
               </h3>
-              <p className="text-sm leading-relaxed text-slate-400">{cat.desc}</p>
+              <p className="text-sm leading-relaxed text-[var(--muted)]">{cat.desc}</p>
             </div>
           ))}
         </div>
@@ -210,10 +209,10 @@ export default function AboutPage() {
         <div className="grid gap-4 sm:grid-cols-2">
           {t.audiences.map((a) => (
             <div key={a.label} className="glass-card p-6">
-              <h3 className="mb-2 text-sm font-semibold uppercase tracking-widest text-cyan-300">
+              <h3 className="mb-2 text-sm font-medium uppercase tracking-[0.24em] text-[var(--accent)]">
                 {a.label}
               </h3>
-              <p className="text-sm leading-relaxed text-slate-400">{a.desc}</p>
+              <p className="text-sm leading-relaxed text-[var(--muted)]">{a.desc}</p>
             </div>
           ))}
         </div>
@@ -224,11 +223,11 @@ export default function AboutPage() {
         <div className="grid gap-8 sm:grid-cols-2">
           <div className="ambient-panel p-8">
             <h2 className="section-kicker mb-4">{t.missionTitle}</h2>
-            <p className="text-base leading-relaxed text-slate-200">{t.missionText}</p>
+            <p className="text-base leading-relaxed text-[var(--text)]">{t.missionText}</p>
           </div>
           <div className="ambient-panel p-8">
             <h2 className="section-kicker mb-4">{t.visionTitle}</h2>
-            <p className="text-base leading-relaxed text-slate-200">{t.visionText}</p>
+            <p className="text-base leading-relaxed text-[var(--text)]">{t.visionText}</p>
           </div>
         </div>
       </section>
@@ -239,10 +238,10 @@ export default function AboutPage() {
         <div className="grid gap-4 sm:grid-cols-2">
           {t.diffs.map((d) => (
             <div key={d.label} className="glass-card p-6">
-              <h3 className="mb-2 text-sm font-semibold uppercase tracking-widest text-white">
+              <h3 className="mb-2 text-sm font-medium uppercase tracking-[0.22em] text-[var(--text)]">
                 {d.label}
               </h3>
-              <p className="text-sm leading-relaxed text-slate-400">{d.desc}</p>
+              <p className="text-sm leading-relaxed text-[var(--muted)]">{d.desc}</p>
             </div>
           ))}
         </div>
@@ -250,11 +249,11 @@ export default function AboutPage() {
 
       {/* ── CTA ── */}
       <section className="content-shell mx-auto max-w-2xl border-t border-white/5 py-20 text-center">
-        <h2 className="mb-3 text-xl font-semibold uppercase tracking-widest text-white">
+        <h2 className="mb-3 text-xl font-medium uppercase tracking-[0.22em] text-[var(--text)]">
           {t.ctaTitle}
         </h2>
-        <p className="mb-8 text-slate-400">{t.ctaText}</p>
-        <Link href="/products" className="btn-cyan rounded-full uppercase">
+        <p className="mb-8 text-[var(--muted)]">{t.ctaText}</p>
+        <Link href="/products" className="btn-cyan uppercase">
           {t.ctaBtn}
         </Link>
       </section>

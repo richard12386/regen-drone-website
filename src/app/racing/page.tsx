@@ -75,18 +75,18 @@ export default function RacingPage() {
 
         <div className="mx-auto mt-14 grid max-w-4xl gap-5 md:grid-cols-2">
           {racingSystems.map((item) => (
-            <article key={item.name} className="glass-card flex flex-col rounded-3xl px-5 py-6">
+            <article key={item.name} className="glass-card flex flex-col rounded-[2px] px-5 py-6">
               <h2 className="text-xl font-semibold text-white">{item.name}</h2>
-              <p className="mt-3 text-sm leading-6 text-slate-300">
+              <p className="mt-3 text-sm leading-6 text-[var(--text-dim)]">
                 {item.description[language]}
               </p>
-              <p className="mt-4 text-[1.4rem] font-semibold text-cyan-200">
+              <p className="mt-4 text-[1.4rem] font-medium text-[var(--accent)]">
                 {item.price[language]}
               </p>
               <button
                 type="button"
                 onClick={() => setSelectedItem(item)}
-                className="mt-5 w-full rounded-full border border-cyan-500/40 py-2.5 text-sm font-semibold uppercase tracking-wide text-cyan-300 transition-colors hover:border-cyan-400/70 hover:bg-cyan-500/10 hover:text-cyan-200"
+                className="btn-outline mt-5 w-full py-2.5 uppercase"
               >
                 {t.detail}
               </button>

@@ -257,28 +257,28 @@ export default function ProductsPage() {
                 {category.items.map((product) => (
                   <article
                     key={product.name}
-                    className="glass-card flex flex-col rounded-3xl px-5 py-5 text-left"
+                    className="glass-card flex flex-col rounded-[2px] px-5 py-5 text-left"
                   >
                     <h3 className="text-[1.03rem] font-semibold tracking-tight text-white md:text-[1.4rem]">
                       {product.name}
                     </h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">
+                    <p className="mt-2 text-sm leading-6 text-[var(--text-dim)]">
                       {product.description[language]}
                     </p>
-                    <p className="mt-4 text-[1.45rem] font-semibold text-cyan-200">
+                    <p className="mt-4 text-[1.45rem] font-medium text-[var(--accent)]">
                       {product.price[language]}
                     </p>
                     <div className="mt-5 flex flex-col gap-2">
                       <button
                         type="button"
-                        className="btn-cyan w-full justify-center rounded-full py-3 font-semibold uppercase"
+                        className="btn-cyan w-full justify-center py-3 uppercase"
                       >
                         {t.cta}
                       </button>
                       <button
                         type="button"
                         onClick={() => setSelectedProduct(product)}
-                        className="w-full rounded-full border border-cyan-500/40 py-2.5 text-sm font-semibold uppercase tracking-wide text-cyan-300 transition-colors hover:border-cyan-400/70 hover:bg-cyan-500/10 hover:text-cyan-200"
+                        className="btn-outline w-full py-2.5 uppercase"
                       >
                         {t.detail}
                       </button>

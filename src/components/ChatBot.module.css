@@ -6,30 +6,31 @@
   z-index: 9999;
   width: 3.25rem;
   height: 3.25rem;
-  border-radius: 50%;
-  border: 1px solid rgba(37, 99, 235, 0.55);
-  background: linear-gradient(145deg, #1e40af 0%, #1d4ed8 50%, #2563eb 100%);
+  border-radius: 2px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-elev);
   box-shadow:
-    0 0 0 1px rgba(59, 130, 246, 0.2) inset,
-    0 8px 28px rgba(37, 99, 235, 0.5),
-    0 0 40px rgba(37, 99, 235, 0.25);
+    0 0 0 1px rgba(201, 169, 106, 0.08) inset,
+    0 8px 28px rgba(0, 0, 0, 0.6),
+    0 0 32px rgba(201, 169, 106, 0.1);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  color: var(--accent);
 }
 .bubble:hover {
-  transform: scale(1.08);
+  transform: scale(1.06);
+  border-color: var(--accent-deep);
   box-shadow:
-    0 0 0 1px rgba(96, 165, 250, 0.35) inset,
-    0 10px 36px rgba(37, 99, 235, 0.65),
-    0 0 52px rgba(37, 99, 235, 0.3);
+    0 0 0 1px rgba(201, 169, 106, 0.15) inset,
+    0 10px 36px rgba(0, 0, 0, 0.7),
+    0 0 48px rgba(201, 169, 106, 0.18);
 }
 .bubble svg {
-  width: 1.35rem;
-  height: 1.35rem;
+  width: 1.25rem;
+  height: 1.25rem;
   flex-shrink: 0;
 }
 
@@ -45,13 +46,13 @@
   max-height: calc(100vh - 7rem);
   display: flex;
   flex-direction: column;
-  border-radius: 1rem;
-  border: 1px solid rgba(37, 99, 235, 0.28);
-  background: linear-gradient(180deg, #0f172a 0%, #0b1526 100%);
+  border-radius: 2px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(180deg, var(--bg-1) 0%, var(--bg-0) 100%);
   box-shadow:
-    0 0 0 1px rgba(148, 163, 184, 0.04) inset,
-    0 24px 60px rgba(0, 0, 0, 0.75),
-    0 0 60px rgba(37, 99, 235, 0.12);
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 24px 60px rgba(0, 0, 0, 0.85),
+    0 0 60px rgba(201, 169, 106, 0.06);
   overflow: hidden;
   animation: chatSlideIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
@@ -73,8 +74,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(37, 99, 235, 0.18);
-  background: linear-gradient(90deg, rgba(15, 23, 42, 0.9) 0%, rgba(17, 24, 48, 0.9) 100%);
+  border-bottom: 1px solid var(--line);
+  background: linear-gradient(90deg, rgba(12, 12, 15, 0.95) 0%, rgba(19, 19, 22, 0.95) 100%);
   flex-shrink: 0;
 }
 .headerLeft {
@@ -83,43 +84,44 @@
   gap: 0.55rem;
 }
 .headerDot {
-  width: 0.55rem;
-  height: 0.55rem;
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 50%;
-  background: #22d3ee;
-  box-shadow: 0 0 8px rgba(34, 211, 238, 0.8);
-  animation: pulse 2s ease-in-out infinite;
+  background: var(--accent);
+  box-shadow: 0 0 8px rgba(201, 169, 106, 0.7);
+  animation: pulse 2.5s ease-in-out infinite;
 }
 @keyframes pulse {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.45; }
+  50% { opacity: 0.4; }
 }
 .headerTitle {
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
-  color: #e2e8f0;
+  color: var(--text);
 }
 .headerSub {
-  font-size: 0.6rem;
-  color: #64748b;
-  letter-spacing: 0.08em;
+  font-size: 0.58rem;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  margin-top: 0.1rem;
 }
 .closeBtn {
   background: none;
   border: none;
-  color: #475569;
+  color: var(--faint);
   cursor: pointer;
   padding: 0.2rem;
-  border-radius: 0.3rem;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: color 0.15s;
 }
 .closeBtn:hover {
-  color: #94a3b8;
+  color: var(--muted);
 }
 .closeBtn svg {
   width: 1rem;
@@ -135,16 +137,16 @@
   flex-direction: column;
   gap: 0.75rem;
   scrollbar-width: thin;
-  scrollbar-color: rgba(37, 99, 235, 0.3) transparent;
+  scrollbar-color: rgba(201, 169, 106, 0.2) transparent;
 }
 .messages::-webkit-scrollbar {
-  width: 3px;
+  width: 2px;
 }
 .messages::-webkit-scrollbar-track {
   background: transparent;
 }
 .messages::-webkit-scrollbar-thumb {
-  background: rgba(37, 99, 235, 0.3);
+  background: rgba(201, 169, 106, 0.2);
   border-radius: 2px;
 }
 
@@ -164,21 +166,21 @@
 .msgBubble {
   max-width: 82%;
   padding: 0.55rem 0.75rem;
-  border-radius: 0.75rem;
+  border-radius: 2px;
   font-size: 0.78rem;
   line-height: 1.55;
 }
 .msgBubbleUser {
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-  color: #e0f2fe;
-  border-bottom-right-radius: 0.2rem;
-  box-shadow: 0 2px 12px rgba(37, 99, 235, 0.35);
+  background: var(--bg-elev);
+  border: 1px solid rgba(201, 169, 106, 0.3);
+  color: var(--text);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 .msgBubbleBot {
-  background: rgba(30, 41, 59, 0.85);
-  border: 1px solid rgba(51, 65, 85, 0.8);
-  color: #cbd5e1;
-  border-bottom-left-radius: 0.2rem;
+  background: rgba(19, 19, 22, 0.85);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  backdrop-filter: blur(12px);
 }
 
 /* ─── Typing indicator ─────────────────────────────────────────────────────── */
@@ -186,23 +188,23 @@
   display: flex;
   gap: 0.28rem;
   padding: 0.6rem 0.75rem;
-  background: rgba(30, 41, 59, 0.85);
-  border: 1px solid rgba(51, 65, 85, 0.8);
-  border-radius: 0.75rem;
-  border-bottom-left-radius: 0.2rem;
+  background: rgba(19, 19, 22, 0.85);
+  border: 1px solid var(--line);
+  border-radius: 2px;
   width: fit-content;
+  backdrop-filter: blur(12px);
 }
 .typingDot {
-  width: 0.35rem;
-  height: 0.35rem;
+  width: 0.32rem;
+  height: 0.32rem;
   border-radius: 50%;
-  background: #3b82f6;
+  background: var(--accent);
   animation: typingBounce 1.2s ease-in-out infinite;
 }
 .typingDot:nth-child(2) { animation-delay: 0.2s; }
 .typingDot:nth-child(3) { animation-delay: 0.4s; }
 @keyframes typingBounce {
-  0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.35; }
   30% { transform: translateY(-4px); opacity: 1; }
 }
 
@@ -214,27 +216,28 @@
   width: 100%;
 }
 .droneCard {
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(37, 99, 235, 0.22);
-  border-radius: 0.625rem;
+  background: linear-gradient(180deg, rgba(24, 24, 28, 0.7) 0%, rgba(12, 12, 15, 0.7) 100%);
+  border: 1px solid var(--line);
+  border-radius: 2px;
   padding: 0.6rem 0.75rem;
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  backdrop-filter: blur(12px);
 }
 .droneCard:hover {
-  border-color: rgba(37, 99, 235, 0.5);
-  box-shadow: 0 0 18px rgba(37, 99, 235, 0.15);
+  border-color: var(--line-strong);
+  box-shadow: 0 0 18px rgba(201, 169, 106, 0.08);
 }
 .droneCardBody {
   flex: 1;
   min-width: 0;
 }
 .droneCardName {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: #e2e8f0;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text);
   letter-spacing: 0.04em;
   white-space: nowrap;
   overflow: hidden;
@@ -247,20 +250,20 @@
   margin-top: 0.15rem;
 }
 .droneCardCategory {
-  font-size: 0.6rem;
-  color: #64748b;
-  letter-spacing: 0.06em;
+  font-size: 0.58rem;
+  color: var(--faint);
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 .droneCardPrice {
-  font-size: 0.65rem;
-  font-weight: 600;
-  color: #38bdf8;
+  font-size: 0.63rem;
+  font-weight: 500;
+  color: var(--accent);
   letter-spacing: 0.04em;
 }
 .droneCardDesc {
-  font-size: 0.62rem;
-  color: #475569;
+  font-size: 0.6rem;
+  color: var(--muted);
   margin-top: 0.15rem;
   line-height: 1.4;
   display: -webkit-box;
@@ -271,22 +274,21 @@
 .droneCardBtn {
   flex-shrink: 0;
   padding: 0.3rem 0.65rem;
-  border-radius: 0.4rem;
-  border: 1px solid rgba(37, 99, 235, 0.45);
-  background: rgba(37, 99, 235, 0.12);
-  color: #93c5fd;
-  font-size: 0.63rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  border-radius: 2px;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  transition: border-color 0.15s, color 0.15s;
   white-space: nowrap;
 }
 .droneCardBtn:hover {
-  background: rgba(37, 99, 235, 0.28);
-  border-color: rgba(96, 165, 250, 0.65);
-  color: #bfdbfe;
+  border-color: var(--accent-deep);
+  color: var(--accent);
 }
 
 /* ─── Input row ────────────────────────────────────────────────────────────── */
@@ -294,52 +296,53 @@
   display: flex;
   gap: 0.5rem;
   padding: 0.625rem 0.75rem;
-  border-top: 1px solid rgba(37, 99, 235, 0.14);
-  background: rgba(11, 21, 38, 0.8);
+  border-top: 1px solid var(--line);
+  background: rgba(8, 8, 10, 0.8);
   flex-shrink: 0;
 }
 .input {
   flex: 1;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(51, 65, 85, 0.8);
-  border-radius: 0.5rem;
+  background: var(--bg-2);
+  border: 1px solid var(--line-strong);
+  border-radius: 2px;
   padding: 0.45rem 0.7rem;
-  font-size: 0.75rem;
-  color: #e2e8f0;
+  font-size: 0.74rem;
+  color: var(--text);
   outline: none;
   transition: border-color 0.15s, box-shadow 0.15s;
   font-family: inherit;
 }
 .input::placeholder {
-  color: #334155;
+  color: var(--faint);
 }
 .input:focus {
-  border-color: rgba(37, 99, 235, 0.55);
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
+  border-color: rgba(201, 169, 106, 0.4);
+  box-shadow: 0 0 0 2px rgba(201, 169, 106, 0.08);
 }
 .sendBtn {
   flex-shrink: 0;
   width: 2.1rem;
   height: 2.1rem;
-  border-radius: 0.5rem;
-  border: 1px solid rgba(37, 99, 235, 0.45);
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-  color: #fff;
+  border-radius: 2px;
+  border: 1px solid var(--line-strong);
+  background: var(--bg-elev);
+  color: var(--accent);
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.15s, transform 0.15s;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
 }
 .sendBtn:hover:not(:disabled) {
-  opacity: 0.9;
-  transform: scale(1.05);
+  border-color: var(--accent-deep);
+  background: rgba(201, 169, 106, 0.08);
+  color: var(--accent-soft);
 }
 .sendBtn:disabled {
-  opacity: 0.4;
+  opacity: 0.3;
   cursor: not-allowed;
 }
 .sendBtn svg {
-  width: 0.9rem;
-  height: 0.9rem;
+  width: 0.85rem;
+  height: 0.85rem;
 }

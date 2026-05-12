@@ -60,7 +60,7 @@ export function Navbar() {
         </Link>
 
         <div className="flex items-center gap-5 md:gap-7">
-          <nav className="flex items-center gap-5 text-[11px] text-slate-300 md:gap-7 md:text-xs">
+          <nav className="flex items-center gap-5 text-[11px] text-[var(--muted)] md:gap-7 md:text-xs">
             {visibleLinks.map((link) => {
               const isActive = pathname === link.href;
 
@@ -68,13 +68,13 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative py-1 transition-colors hover:text-white ${
-                    isActive ? "text-white" : "text-slate-400"
+                  className={`relative py-1 transition-colors hover:text-[var(--text)] ${
+                    isActive ? "text-[var(--text)]" : "text-[var(--muted)]"
                   }`}
                 >
                   {link.label[language]}
                   <span
-                    className={`absolute inset-x-0 -bottom-[10px] h-px bg-cyan-300/70 transition-opacity ${
+                    className={`absolute inset-x-0 -bottom-[10px] h-px bg-[var(--accent)] transition-opacity ${
                       isActive ? "opacity-100" : "opacity-0"
                     }`}
                   />
@@ -83,7 +83,7 @@ export function Navbar() {
             })}
           </nav>
 
-          <div className="flex items-center gap-1 rounded-full border border-white/8 bg-white/4 p-1">
+          <div className="flex items-center gap-1 rounded-[2px] border border-white/8 bg-white/4 p-1">
             {(["cs", "en"] as const).map((option) => {
               const isActive = language === option;
 
@@ -92,10 +92,10 @@ export function Navbar() {
                   key={option}
                   type="button"
                   onClick={() => setLanguage(option)}
-                  className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] transition ${
+                  className={`rounded-[2px] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] transition ${
                     isActive
-                      ? "bg-cyan-300 text-slate-950"
-                      : "text-slate-300 hover:text-white"
+                      ? "bg-[var(--accent)] text-[#0a0a0a]"
+                      : "text-[var(--muted)] hover:text-[var(--text)]"
                   }`}
                 >
                   {option}
