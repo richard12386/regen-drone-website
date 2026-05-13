@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useLanguage } from "@/components/site/language-provider";
+import { useCart } from "@/components/site/cart-provider";
 import { SpecModal, type Language, type SpecSection } from "@/components/site/spec-modal";
 import {
   airSnapSpecs,
@@ -206,6 +207,7 @@ const categories: Category[] = [
 
 export default function ProductsPage() {
   const { language } = useLanguage();
+  const { add } = useCart();
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const copy = {
@@ -271,6 +273,14 @@ export default function ProductsPage() {
                     <div className="mt-5 flex flex-col gap-2">
                       <button
                         type="button"
+                        onClick={() =>
+                          add({
+                            id: product.name,
+                            name: product.name,
+                            priceCs: product.price.cs,
+                            priceEn: product.price.en,
+                          })
+                        }
                         className="btn-cyan w-full justify-center py-3 uppercase"
                       >
                         {t.cta}

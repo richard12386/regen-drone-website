@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" width="192" height="192">
+  <rect width="192" height="192" fill="#070d0e"/>
+  <rect x="0" y="0" width="192" height="192" fill="url(#g)" opacity="0.4"/>
+  <defs>
+    <radialGradient id="g" cx="80%" cy="20%" r="70%">
+      <stop offset="0%" stop-color="#2B5565"/>
+      <stop offset="100%" stop-color="#070d0e"/>
+    </radialGradient>
+  </defs>
+  <!-- Drone arms -->
+  <line x1="60" y1="60" x2="96" y2="96" stroke="#34647A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="132" y1="60" x2="96" y2="96" stroke="#34647A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="60" y1="132" x2="96" y2="96" stroke="#34647A" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="132" y1="132" x2="96" y2="96" stroke="#34647A" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Propellers -->
+  <circle cx="52" cy="52" r="14" fill="none" stroke="#49c4c1" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="140" cy="52" r="14" fill="none" stroke="#49c4c1" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="52" cy="140" r="14" fill="none" stroke="#49c4c1" stroke-width="1.5" opacity="0.7"/>
+  <circle cx="140" cy="140" r="14" fill="none" stroke="#49c4c1" stroke-width="1.5" opacity="0.7"/>
+  <!-- Center body -->
+  <circle cx="96" cy="96" r="10" fill="#49c4c1" opacity="0.9"/>
+  <circle cx="96" cy="96" r="5" fill="#070d0e"/>
+</svg>

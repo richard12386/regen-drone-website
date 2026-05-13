@@ -1,12 +1,27 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { LanguageProvider } from "@/components/site/language-provider";
-import { Navbar } from "@/components/site/navbar";
-import ChatBot from "@/components/ChatBot";
+import { CartProvider } from "@/components/site/cart-provider";
+import { SiteShell } from "@/components/site/SiteShell";
+import { PwaRegistrar } from "@/components/site/PwaRegistrar";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "REGEN",
   description: "Premium drone and defense technology systems",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent",
+    title: "REGEN Flight",
+  },
+  icons: {
+    icon: "/icons/icon-192.svg",
+    apple: "/icons/icon-512.svg",
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#49c4c1",
 };
 
 export default function RootLayout({
@@ -18,10 +33,13 @@ export default function RootLayout({
     <html lang="cs">
       <body>
         <LanguageProvider>
-          <div className="grid-overlay" />
-          <Navbar />
-          {children}
-          <ChatBot />
+          <CartProvider>
+            <div className="grid-overlay" />
+            <SiteShell>
+              {children}
+            </SiteShell>
+            <PwaRegistrar />
+          </CartProvider>
         </LanguageProvider>
       </body>
     </html>
