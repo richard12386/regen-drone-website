@@ -46,10 +46,10 @@ export default function Page() {
       primary: "Prozkoumat řadu",
       secondary: "O nás",
       anno: {
-        sensor: { label: "Front Array", value: "12-bod LiDAR", sub: "obstacle detection" },
-        camera: { label: "Optics", value: "1\" CMOS · f/1.7", sub: "5.1K @ 50fps" },
-        motor: { label: "Propulsion", value: "Brushless 2806", sub: "12 000 RPM" },
-        flight: { label: "Endurance", value: "47 min letu", sub: "12 km range" },
+        sensor: { label: "Detekce překážek", value: "360° Omnidirec.", sub: "všesměrové vnímání" },
+        camera: { label: "Optika", value: "1\" CMOS · f/2.8–f/11", sub: "5.1K @ 50fps" },
+        motor: { label: "Přenos", value: "SkyLink v3.0", sub: "dosah 10 km (EU)" },
+        flight: { label: "Výdrž", value: "48 min letu", sub: "Quick-Lock skládání" },
       },
       bannerKicker: "REGEN Flight App",
       bannerTitle: "Ovládejte celou flotilu z jednoho místa",
@@ -66,10 +66,10 @@ export default function Page() {
       primary: "Explore the lineup",
       secondary: "About",
       anno: {
-        sensor: { label: "Front Array", value: "12-point LiDAR", sub: "obstacle detection" },
-        camera: { label: "Optics", value: "1\" CMOS · f/1.7", sub: "5.1K @ 50fps" },
-        motor: { label: "Propulsion", value: "Brushless 2806", sub: "12,000 RPM" },
-        flight: { label: "Endurance", value: "47 min flight", sub: "12 km range" },
+        sensor: { label: "Obstacle Sense", value: "360° Omnidirec.", sub: "all directions" },
+        camera: { label: "Optics", value: "1\" CMOS · f/2.8–f/11", sub: "5.1K @ 50fps" },
+        motor: { label: "Transmission", value: "SkyLink v3.0", sub: "10 km range (EU)" },
+        flight: { label: "Endurance", value: "48 min flight", sub: "Quick-Lock fold" },
       },
       bannerKicker: "REGEN Flight App",
       bannerTitle: "Control your entire fleet from one place",
@@ -152,9 +152,14 @@ export default function Page() {
             <div className="anno-sub">{t.anno.flight.sub}</div>
           </div>
 
-          {/* Subtle index marker */}
-          <div className="absolute right-4 top-4 text-[10px] uppercase tracking-[0.32em]" style={{ color: "var(--faint)" }}>
-            REGEN—M7 / 01
+          {/* Model index marker */}
+          <div className="absolute right-4 top-4 flex flex-col items-end gap-0.5">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.28em]" style={{ color: "var(--accent)" }}>
+              REGEN TravelFly
+            </span>
+            <span className="text-[9px] uppercase tracking-[0.32em]" style={{ color: "var(--muted)" }}>
+              Osobní dron · 590 g · 48 min
+            </span>
           </div>
         </div>
       </section>
